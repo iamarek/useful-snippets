@@ -13,6 +13,7 @@ Feel free to use.
 1. [Mixins](#mixins)
   * [Font size from px to em](#font-size-from-px-to-em)
   * [Retina images](#retina-images)
+  * [Placeholder color](#placeholder-color)
 
 Small snippets of code for faster use on projects. Feel free to use or contribute if you think some of snippets can be better written!
 
@@ -29,7 +30,7 @@ $base-font-size: 16px;
 ```
 ```
 @mixin font-size($font-size) {
-  font-size: 1em * $font-size/$base-font-size;
+    font-size: 1em * $font-size/$base-font-size;
 }
 ```
 
@@ -37,7 +38,7 @@ $base-font-size: 16px;
 
 ```
 .foo {
-  @include font-size(16px);
+    @include font-size(16px);
 }
 ```
 
@@ -47,13 +48,13 @@ $base-font-size: 16px;
 
 ```
 @mixin bg-retina($file, $type) {
-  background-image: url($file + '.' + $type);
-
-  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
-    & {
-      background-image: url($file + '@2x.' + $type);
+    background-image: url($file + '.' + $type);
+    
+    @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+        & {
+            background-image: url($file + '@2x.' + $type);
+        }
     }
-  }
 }
 ```
 
@@ -61,6 +62,37 @@ $base-font-size: 16px;
 
 ```
 .foo {
-  @include bg-retina('path/to/file/example','svg');
+    @include bg-retina('path/to/file/example','svg');
+}
+```
+
+### Placeholder color
+
+>Mixin changes color of placeholder with all neccessary prefixes
+
+###### from https://css-tricks.com/almanac/selectors/p/placeholder/
+
+```
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+}
+```
+
+*example of usage*
+
+```
+.foo {
+    @include placeholder($red);
 }
 ```
