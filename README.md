@@ -1,3 +1,6 @@
+![Travolta](http://vader.joemonster.org/upload/rwu/1539970c1d48acceLw7m.gif)
+
+
 # useful-snippets
 
 Useful snippets of CSS, Sass and JavaScript from and for my projects.
