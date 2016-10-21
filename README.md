@@ -7,6 +7,7 @@ Feel free to use.
 **Table of contents**
 
 1. [Sass](#sass)
+2. [JavaScript](#javascript)
 
 # Sass
 
@@ -42,9 +43,9 @@ $base-font-size: 16px;
 }
 ```
 
-### Retina images
+### Retina background images
 
->Mixin changes images from @1x to @2x on retina screens
+>Mixin changes background images from @1x to @2x on retina screens
 
 ```
 @mixin bg-retina($file, $type) {
@@ -96,3 +97,26 @@ $base-font-size: 16px;
     @include placeholder($red);
 }
 ```
+
+#JavaScript
+
+1. [Functions](#functions)
+  * [Retina images](#retina-images)
+
+##Functions
+
+### Retina images
+
+>Function changes images from @1x to @2x on retina screens.
+
+```
+if (window.devicePixelRatio > 1) {
+    var lowresImages = $('img');
+    lowresImages.each(function(i) {
+        var lowres = $(this).attr('src');
+        var highres = lowres.replace(".", "@2x.");
+        $(this).attr('src', highres);
+    });
+}
+```
+
