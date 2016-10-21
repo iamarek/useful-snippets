@@ -14,7 +14,9 @@ Feel free to use.
 1. [Mixins](#mixins)
   * [Font size from px to em](#font-size-from-px-to-em)
   * [Retina images](#retina-images)
-  * [Placeholder color](#placeholder-color)
+  * [Placeholder attributes](#placeholder-attributes)
+  * [Center block](#center-block)
+  * [Transition](#transition)
 
 Small snippets of code for faster use on projects. Feel free to use or contribute if you think some of snippets can be better written!
 
@@ -67,25 +69,33 @@ $base-font-size: 16px;
 }
 ```
 
-### Placeholder color
+### Placeholder attributes
 
->Mixin changes color of placeholder with all neccessary prefixes
+>Mixin changes attributes of placeholder with all neccessary prefixes
 
 ###### from https://css-tricks.com/almanac/selectors/p/placeholder/
 
 ```
-@mixin placeholder($color) {
-    &::-webkit-input-placeholder {
-        color: $color;
+@mixin placeholder {
+
+    &.placeholder { 
+        @content; 
     }
-    &::-moz-placeholder {
-        color: $color;
+    
+    &:-moz-placeholder { 
+        @content; 
     }
-    &:-ms-input-placeholder {
-        color: $color;
+    
+    &::-moz-placeholder { 
+        @content; 
     }
-    &:-moz-placeholder {
-        color: $color;
+    
+    &:-ms-input-placeholder { 
+        @content; 
+    }
+    
+    &::-webkit-input-placeholder { 
+        @content; 
     }
 }
 ```
@@ -94,7 +104,53 @@ $base-font-size: 16px;
 
 ```
 .foo {
-    @include placeholder($red);
+    @include placeholder{
+        color: $red;
+    }
+}
+```
+
+### Center block
+
+>Mixin center block within parent
+
+
+```
+@mixin center-block {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}   
+```
+
+*example of usage*
+
+```
+.foo {
+    @include center-block
+}
+```
+
+### Transition
+
+>Mixin helps with transition value
+
+```
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+```
+
+*example of usage*
+
+```
+.foo {
+    @include transition(0.5s all);
 }
 ```
 
