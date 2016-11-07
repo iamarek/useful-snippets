@@ -161,6 +161,7 @@ $base-font-size: 16px;
 
 1. [Functions](#functions)
   * [Retina images](#retina-images)
+  * [Is in viewport](#is-in-viewport)
 
 ##Functions
 
@@ -178,4 +179,36 @@ if (window.devicePixelRatio > 1) {
     });
 }
 ```
+
+### Is in viewport
+
+>Function check if element is in viewport and returns true or false
+
+```
+$.fn.isOnScreen = function () {
+
+    var win = $(window);
+
+    var viewport = {
+      top: win.scrollTop(),
+      left: win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+
+    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+  };
+```
+
+*example of usage*
+
+```
+$('.element').isOnScreen()
+```
+
 
