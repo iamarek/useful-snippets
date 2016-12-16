@@ -1,6 +1,3 @@
-![Travolta](http://vader.joemonster.org/upload/rwu/1539970c1d48acceLw7m.gif)
-
-
 # useful-snippets
 
 Useful snippets of CSS, Sass and JavaScript from and for my projects.
@@ -11,6 +8,7 @@ Feel free to use.
 
 1. [Sass](#sass)
 2. [JavaScript](#javascript)
+3. [Usefull Links](#usefull-links)
 
 # Sass
 
@@ -211,4 +209,12 @@ $.fn.isOnScreen = function () {
 $('.element').isOnScreen()
 ```
 
+# Useful Links
 
+### Oh My ZSH - Terminal Plugin
+
+> Plugin for terminal - fav theme: YS
+
+http://ohmyz.sh/
+
+https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/ys.zsh-theme
