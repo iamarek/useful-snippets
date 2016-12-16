@@ -8,7 +8,7 @@ Feel free to use.
 
 1. [Sass](#sass)
 2. [JavaScript](#javascript)
-3. [Usefull Links](#usefull-links)
+3. [Useful Links](#useful-links)
 
 # Sass
 
