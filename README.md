@@ -218,3 +218,9 @@ $('.element').isOnScreen()
 http://ohmyz.sh/
 
 https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/ys.zsh-theme
+
+### Online Image Color Extractor
+
+> Makes CSS gradient from image
+
+http://www.louisbourque.ca/Color-Extractor/
